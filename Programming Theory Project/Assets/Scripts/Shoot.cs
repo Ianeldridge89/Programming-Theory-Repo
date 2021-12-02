@@ -8,14 +8,13 @@ public class Shoot : MonoBehaviour
 {
     public float bulletSpeed = 40.0f;
     public Rigidbody bulletRb;
-    public int enemyPointsValue;
     public int bulletDamage;
 
     // Start is called before the first frame update
     void Start()
     {
         bulletRb = GetComponent<Rigidbody>();
-        enemyPointsValue = 2;
+
         bulletDamage = 5;
     }
 
@@ -24,22 +23,6 @@ public class Shoot : MonoBehaviour
     {
         FireBullet();
         ConstrainBullet();
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Enemy")
-        {
-            Enemy.TakeDamage(bulletDamage);
-            Destroy(gameObject);
-            if (Enemy.enemyHP <= 0)
-            {
-                
-                Destroy(other.gameObject);
-                MainManager.UpdateScore(enemyPointsValue);
-            }
-        }
-        
     }
 
     private void FireBullet()
@@ -56,7 +39,11 @@ public class Shoot : MonoBehaviour
         if (transform.position.x < westRange || transform.position.x > eastRange || transform.position.z > northRange || transform.position.z < southRange)
         {
             Destroy(gameObject);
-        }
-          
+        } 
+    }
+
+    public int GetBulletDamage()
+    {
+        return bulletDamage;
     }
 }

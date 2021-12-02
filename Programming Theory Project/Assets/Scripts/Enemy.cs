@@ -5,10 +5,11 @@ using UnityEngine;
 // INHERITANCE
 public class Enemy : Controller
 {
-    public float speed = 3.0f;
+    public float speed;
     private Rigidbody enemyRb;
     private GameObject player;
-    public static int enemyHP;
+    private static int enemyHP;
+    public int enemyPointsValue;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +17,8 @@ public class Enemy : Controller
         enemyRb = GetComponent<Rigidbody>();
         player = GameObject.Find("Player");
         enemyHP = 10;
+        speed = 3.0f;
+        enemyPointsValue = 2;
     }
 
     // Update is called once per frame
@@ -33,11 +36,23 @@ public class Enemy : Controller
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+
+        if (other.gameObject.tag == "Bullet")
+        {
+            int damage = other.gameObject.GetComponent<Shoot>().bulletDamage;
+            TakeDamage(damage);
+            Destroy(other.gameObject);
+            if (enemyHP <= 0)
+            {
+                Destroy(gameObject);
+                MainManager.UpdateScore(enemyPointsValue);
+            }
+        }
+        else if (other.gameObject.tag == "Player")
         {
             Debug.Log("Player killed! GAME OVER");
-
         }
+
     }
 
     public static void TakeDamage(int damage)
