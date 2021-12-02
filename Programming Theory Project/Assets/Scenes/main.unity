@@ -1337,6 +1337,10 @@ PrefabInstance:
       propertyPath: speed
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1646180728108071050, guid: 158d92c9562e7074b92832aba7dccb9f, type: 3}
+      propertyPath: enemyPointsValue
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 6619341334584514161, guid: 158d92c9562e7074b92832aba7dccb9f, type: 3}
       propertyPath: m_Name
       value: TankEnemy
