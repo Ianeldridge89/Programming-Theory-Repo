@@ -8,13 +8,14 @@ public class Enemy : Controller
     public float speed = 3.0f;
     private Rigidbody enemyRb;
     private GameObject player;
+    public static int enemyHP;
 
     // Start is called before the first frame update
     void Start()
     {
         enemyRb = GetComponent<Rigidbody>();
         player = GameObject.Find("Player");
-        
+        enemyHP = 10;
     }
 
     // Update is called once per frame
@@ -37,5 +38,11 @@ public class Enemy : Controller
             Debug.Log("Player killed! GAME OVER");
 
         }
+    }
+
+    public static void TakeDamage(int damage)
+    {
+        enemyHP = enemyHP - damage;
+        Debug.Log("HIT. health remaining: " + enemyHP);
     }
 }

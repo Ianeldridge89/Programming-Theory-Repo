@@ -15,11 +15,12 @@ public class MainManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(playerScore);
+        
     }
 
     public static void UpdateScore(int enemyValue)
     {
         playerScore = playerScore + enemyValue;
+        Debug.Log(playerScore);
     }
 }

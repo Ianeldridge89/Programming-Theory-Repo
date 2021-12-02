@@ -9,12 +9,14 @@ public class Shoot : MonoBehaviour
     public float bulletSpeed = 40.0f;
     public Rigidbody bulletRb;
     public int enemyPointsValue;
+    public int bulletDamage;
 
     // Start is called before the first frame update
     void Start()
     {
         bulletRb = GetComponent<Rigidbody>();
         enemyPointsValue = 2;
+        bulletDamage = 5;
     }
 
     // Update is called once per frame
@@ -28,9 +30,14 @@ public class Shoot : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
+            Enemy.TakeDamage(bulletDamage);
             Destroy(gameObject);
-            Destroy(other.gameObject);
-            MainManager.UpdateScore(enemyPointsValue);
+            if (Enemy.enemyHP <= 0)
+            {
+                
+                Destroy(other.gameObject);
+                MainManager.UpdateScore(enemyPointsValue);
+            }
         }
         
     }
