@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+// INHERITANCE
+public class Enemy : Controller
 {
     public float speed = 3.0f;
     private Rigidbody enemyRb;
@@ -19,20 +20,22 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ConstrainMovement();
         FollowPlayer();
     }
 
+    // ABSTRACTION
     private void FollowPlayer()
     {
-        ConstrainMovement();
         enemyRb.AddForce((player.transform.position - transform.position).normalized * speed);
     }
 
-    private void ConstrainMovement()
+    void OnTriggerEnter(Collider other)
     {
-        if (transform.position.x < -19.5)
+        if (other.gameObject.tag == "Player")
         {
-            transform.position = new Vector3(-19.5f, transform.position.y, transform.position.z);
+            Debug.Log("Player killed! GAME OVER");
+
         }
     }
 }

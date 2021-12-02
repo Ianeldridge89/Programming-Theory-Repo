@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+// INHERITANCE
+public class PlayerController : Controller
 {
     public CharacterController controller;
+    public GameObject projectilePrefab;
 
-    public float speed = 6.0f;
+    public float speed = 10.0f;
 
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
@@ -14,9 +16,15 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ConstrainMovement();
         MovePlayer();
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            ShootProjectile();
+        }
     }
 
+    // ABSTRACTION
     public void MovePlayer()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
@@ -31,4 +39,12 @@ public class PlayerController : MonoBehaviour
             controller.Move(direction * speed * Time.deltaTime);
         }
     }
+
+    // ABSTRACTION
+    public void ShootProjectile()
+    {
+        Instantiate(projectilePrefab, transform.position, transform.rotation);
+    }
+
+
 }

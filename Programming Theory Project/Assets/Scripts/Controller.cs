@@ -6,9 +6,9 @@ public class Controller : MonoBehaviour
 {
     //Parent Class of both enemy and playercontroller
     private float westRange = -19.5f;
-    private float eastRange = 20.0f;
-    private float northRange = 20.0f;
-    private float southRange = -20.0f;
+    private float eastRange = 29.0f;
+    private float northRange = 27.0f;
+    private float southRange = -21.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +22,8 @@ public class Controller : MonoBehaviour
         
     }
 
-    private void ConstrainMovement()
+    // ABSTRACTION
+    public void ConstrainMovement()
     {
         if (transform.position.x < westRange)
         {
