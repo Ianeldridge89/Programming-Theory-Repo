@@ -118,6 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  enemyPointsValue: 0
 --- !u!54 &4966895879455154165
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -145,8 +146,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_Size: {x: 1.5714626, y: 2, z: 1.5362439}
+  m_Center: {x: -0.023029327, y: 0, z: 0.052359343}
 --- !u!1 &4966895879468462096
 GameObject:
   m_ObjectHideFlags: 0

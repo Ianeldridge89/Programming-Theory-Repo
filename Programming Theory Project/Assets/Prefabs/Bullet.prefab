@@ -96,7 +96,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &940703853490384517
 MonoBehaviour:
@@ -112,7 +112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 40
   bulletRb: {fileID: 0}
-  enemyPointsValue: 0
+  bulletDamage: 0
 --- !u!54 &-4541673103357723496
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class MainManager : MonoBehaviour
 {
+    // ENCAPSULATION
+    //public static MainManager Instance { get; set; }
+    public TextMeshProUGUI gameOverText;
+
     public static int playerScore = 0;
     // Start is called before the first frame update
 
@@ -17,6 +22,8 @@ public class MainManager : MonoBehaviour
     {
         
     }
+
+
 
     public static void UpdateScore(int enemyValue)
     {

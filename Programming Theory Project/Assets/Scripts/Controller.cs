@@ -5,10 +5,10 @@ using UnityEngine;
 public class Controller : MonoBehaviour
 {
     //Parent Class of both enemy and playercontroller
-    private float westRange = -19.5f;
-    private float eastRange = 29.0f;
-    private float northRange = 27.0f;
-    private float southRange = -21.0f;
+    public static float westRange = -19.5f;
+    public static float eastRange = 29.0f;
+    public static float northRange = 27.0f;
+    public static float southRange = -21.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +19,22 @@ public class Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    // POLYMORPHISM
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            GameOver();
+        }
+    }
+
+    public void GameOver()
+    {
+        //Destroy(gameObject);
+        Debug.Log("Player killed! GAME OVER");
     }
 
     // ABSTRACTION
