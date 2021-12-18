@@ -27,15 +27,10 @@ public class Controller : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            GameOver();
+            MainManager.GameOver();
         }
     }
 
-    public void GameOver()
-    {
-        //Destroy(gameObject);
-        Debug.Log("Player killed! GAME OVER");
-    }
 
     // ABSTRACTION
     public void ConstrainMovement()
