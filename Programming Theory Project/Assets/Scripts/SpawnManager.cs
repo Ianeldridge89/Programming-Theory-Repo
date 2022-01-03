@@ -5,24 +5,29 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     public GameObject enemyPrefab;
-    public int enemyCount;
-    public int waveNumber = 1;
+    public int enemyCount = 0;
+    public static int waveNumber = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        SpawnEnemyWave(waveNumber);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        enemyCount = FindObjectsOfType<Enemy>().Length;
-        if (enemyCount == 0)
+        if (MainManager.isGameActive)
         {
-            waveNumber++;
-            SpawnEnemyWave(waveNumber);
+            enemyCount = FindObjectsOfType<Enemy>().Length;
+            if (enemyCount == 0)
+            {
+                waveNumber++;
+                SpawnEnemyWave(waveNumber);
+            }
         }
+         
+
     }
 
     private Vector3 GenerateSpawnPosition()

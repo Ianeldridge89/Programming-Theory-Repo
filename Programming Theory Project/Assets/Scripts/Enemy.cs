@@ -16,7 +16,7 @@ public class Enemy : Controller
         enemyRb = GetComponent<Rigidbody>();
         player = GameObject.Find("Player");
         speed = 3.0f;
-        enemyPointsValue = 1;
+        enemyPointsValue = 10;
     }
 
     // Update is called once per frame

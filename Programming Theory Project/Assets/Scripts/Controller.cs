@@ -28,6 +28,7 @@ public class Controller : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             MainManager.GameOver();
+            
         }
     }
 
